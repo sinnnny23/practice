@@ -5,10 +5,13 @@ import org.junit.Test;
 public class AdditionalTax {
     public static AddTaxResult calculateTax(int principle) {
         double taxRate = 0.1;
-        int supplyValue = (int) Math.round(principle / 1.1);
-        int tax = (int) Math.round(supplyValue * taxRate);
+        double supply = (double) (principle / 1.1);
+        double tax = (double) (supply * taxRate);
 
-        return new AddTaxResult(supplyValue,tax);
+        int tax2 = (int) Math.round(tax);
+        int supplyValue = (int) Math.round(supply);
+
+        return new AddTaxResult(supplyValue,tax2);
     }
 
     @Test
